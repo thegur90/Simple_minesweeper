@@ -2,7 +2,7 @@
 
 A classic Minesweeper game built in C++ with SDL2.
 
-![Game Screenshot](screenshot.png)
+![Game Screenshot](Screenshot.png)
 
 1. Install SDL2, SDL2_image
 2. `mkdir build && cd build`
