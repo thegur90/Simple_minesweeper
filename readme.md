@@ -1,4 +1,4 @@
-# minesweeper in c++ by thegur90 
+# minesweeper in C++ by thegur90 
 
 A classic Minesweeper game built in C++ with SDL2.
 
