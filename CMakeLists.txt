@@ -13,4 +13,4 @@ set_target_properties(Minesweeper PROPERTIES WIN32_EXECUTABLE TRUE)
 # Copy assets to build directory
 file(COPY assets DESTINATION ${CMAKE_BINARY_DIR})
 
-target_link_libraries(Minesweeper mingw32 SDL2main SDL2 SDL2_image SDL2_ttf )
+target_link_libraries(Minesweeper mingw32 SDL2main SDL2 SDL2_image)

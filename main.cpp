@@ -1,4 +1,4 @@
-//minesweeper in c++ by thegur90 - [PUT REPO LINK HERE LATER]
+//minesweeper in c++ by thegur90 - [https://github.com/thegur90/Simple_minesweeper]
 #pragma region IMPORTS_INCLUDES
 
 #include <iostream>
