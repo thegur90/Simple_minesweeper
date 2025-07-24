@@ -1,0 +1,120 @@
+1. get SDL working and compiled
+
+2. render image on screen
+
+3. render images in a seperate file
+
+4. make a function to render any of the preset slot images. (ended up doing it a bit differently, but done)
+
+5. render numbers flags and mines on top of the slot images
+
+6. link main to render_slot instead of render_image and make 6 different slot tests with various combos of numbers mines and flags.
+
+7. now that we have rendering images sorted, time to handle input. figure out how to do that in the most basic way - left clicking the screen should print "left_click".
+
+8. do the same for "right_click", shift_left_click, shift_right_click
+
+9. for left clicks - add functions that only work on mouse release. i should have two pairs - one for left click, one for shift left clicks.
+
+10. make a new function that distinguishes between all of those, and returns the position of the clicks.
+
+//DONE_MARK
+
+11. inside main - render the correct button based on the previous function. this will take a while and need a lot of use cases.
+
+12. Before we continue - rename main to run_stage and have main be basically a wrapper of run_stage. will be probably useful later.
+
+13. Time to make the struct called "board". The struct should contain:
+
+ - width (int)
+ - height (int)
+ - data (string)
+
+ the default struct (and the one to first construct in run_stage) will have these values:
+
+ - 7
+ - 5
+ - 0011100001m21100113m200002m20000111 // this is an already correct string, i will make my own very soon. m=mine
+
+ This is how we will store board data.
+
+14. Time to generate an empty board, this will generate a new struct with two parameters (width, height) and will generate a struct with a string full of the correct amount of 0's.
+ - the function name should be generate_empty_struct
+
+15. make a generate_single_mine function that takes a board struct and edits it to include the mine, as well as the numbers around it.
+ - make it increment any existing numbers, and not alter any pre-existing mines.
+
+16. make a helper functions that generates x random numbers from a range, and makes sure none of them are identical.
+
+17. use the functions from 14-16 to make generate_board_struct(width,height,mine_percentage) where mine_percentage is the percentage of mines generated in the board. 
+ return the struct.
+
+18. make render_board, figure out how to do it when you get here :p (this should be called every frame)
+
+19. take a moment to iron out the game window to be essentially a working minesweeper with invincibility cheats. make sure clicking on buttons do what it should.
+ This includes:
+ - flags are working
+ - numbers are rendered correctly
+ - left clicks are only proccessed on release (apart from rendering)
+
+20. and now we affect the slots around the slot we clicked on. make a just_clicked_on_zero function that crawls around the board and clicks on all adjacent zeros.
+ - this is responsible for those moments where you click the board and half of it clears up. make sure to include numbers, but not mines! :p
+
+20. and while we're at it - QOL no.1 will be shift left click. 
+ This will only work when you have the same amount of flags as the number on the already cleared slot.
+ When the condition matches, it chould clear every slot around it. remember what happens when you clear a zero!
+
+21. and the one function that should exist in vanilla minesweeper, when shift right clicking on a number that has the same amount of hidden slots as it's value - 
+ - flag all the surrounding cells at once!
+
+22. time for a win condition check:
+ -  if there are 0 mines revealed
+ -  no unflagged hidden cells
+ -  same amount of flags as there are mines (i can iterate over the struct to find out the mine count ahead of time)
+ render "you win" on top of the board
+
+23. the lose condition is a lot simpler: if there's more than 0 mines revealed render "you lose".
+
+24. render on the side how many mines you have left (based on the number of flags you plopped)
+
+25. This is the first decision point. if all of this took more than 20 hours, it might be ok to stop here.
+    Go ahead, compile and ship it with a 10/10/10% board and have a text file with the option to change the board size/mine percentage.
+    Everything from this point on is optional but recommended if i feel like i need it.
+    but - no ui compromises - make sure it's shippable at least.
+
+26. make a settings window with a cog icon on the side. the settings should have the board size, as well as:
+ - "New run"
+ - "Return"
+ - "Quit"
+
+27. Stop the game if the win or lose conditions have been met - and open a similar window to start a new game or quit.
+
+28. adjust window size based on the board size - and implement a maximum board size of 30x20.
+
+29. add the ability to save & quit mid run
+
+30. add a timer, time your runs when you win!
+
+31. add an "about" section to the settings window for some credits?
+
+32. Second decision point. this is a really good place to stop..... BUT - I could add sounds...
+
+33. Implement FMOD studio system with a placeholder track
+
+34. Implement click sounds, mine explosions, you win / you lose sounds
+
+35. Add sound settings: master/sfx/music volume
+
+36. Mute audio in background because let's be real tabbing out to another game should be a thing in every game.
+
+37. Headbob to the bpm of the music on the side as a sprite, surely this won't take a crapton of helper functions amirite
+
+38. Add a skin and skinmod functionality. there's only so many images so it should be possible.
+
+39. Add the ability to change BGM too. If you're noce, add documentation on how to add custom assets.
+
+40. Publish on steam? honestly this is overkill but hey it would be nice to know about it!
+
+
+
+

@@ -1,0 +1,70 @@
+# Build directories
+build/
+Build/
+cmake-build-*/
+out/
+
+# Compiled binaries
+*.exe
+*.dll
+*.so
+*.dylib
+*.a
+*.lib
+
+# Object files
+*.o
+*.obj
+
+# Asset source files
+*.pptx
+*.psd
+*.xcf
+*.blend
+*.ai
+*.sketch
+
+# CMake generated files
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+Makefile
+*.cmake
+!CMakeLists.txt
+
+# Visual Studio / VS Code
+.vs/
+.vscode/
+*.vcxproj*
+*.sln
+*.suo
+*.user
+
+# MinGW/MSYS2 specific
+*.stackdump
+
+# Debug files
+*.pdb
+*.ilk
+
+# Temporary files
+*.tmp
+*.temp
+*~
+.DS_Store
+Thumbs.db
+
+# IDE files
+*.cbp
+*.depend
+*.layout
+
+# Settings file (if you want to exclude it)
+# minesweeper_settings.txt
+
+# Log files
+*.log
+
+# Backup files
+*.bak
+*.backup
