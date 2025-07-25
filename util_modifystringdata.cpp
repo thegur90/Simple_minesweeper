@@ -4,12 +4,8 @@
 #include <chrono> // For seeding with time
 
 void reveal_all_mines(std::string& board){ //i just need the string here.
-    int num_slots = board.length() / 2;
-    for(int i = 0; i<num_slots;i++){
-        int current_value = (i*2) + 1;
-        if (board[current_value] == 'm'){
-            board[current_value-1] = 'r';
-        }
+    for(int i = 1; i<board.length();i=i+2){
+        board[i-1] = 'r';
     }
 }
 

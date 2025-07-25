@@ -554,6 +554,24 @@ int SDL_main(int argc, char *argv[])
            int x = i % board_cols;
            int y = i / board_cols;
 
+           if(get_slot_value(x,y,board_data,board_cols) == 'x'){ //detect loss
+            lose = true;
+            temp_game_still_going = false; //i'll let the loop finish to render everything one last time - that's why the temp exists.
+           }
+           if(detect_win(board_data)){
+            win = true;
+            temp_game_still_going = false;
+           }
+
+       }
+
+      for (int i = 0; i < num_slots; i++) {
+           int x = i % board_cols;
+           int y = i / board_cols;
+           if(get_slot_value(x,y,board_data,board_cols) == 'x'){ //detect loss
+            reveal_all_mines(board_data);
+           }
+
            if (game_still_going == true){
             //i'm still surprised how much bullcrap one can hide by simply not rendering it when one variable happens
             RenderSlotInRect(get_slot_value(x,y,board_data,board_cols),
@@ -568,19 +586,6 @@ int SDL_main(int argc, char *argv[])
                  &rect_array[i],slot_tex,Renderer);
 
            }
-           
-
-           if(get_slot_value(x,y,board_data,board_cols) == 'x'){ //detect loss
-            lose = true;
-            temp_game_still_going = false; //i'll let the loop finish to render everything one last time - that's why the temp exists.
-           }
-           if(detect_win(board_data)){
-            win = true;
-            temp_game_still_going = false;
-           }
-
-           
-
 
        }
        game_still_going = temp_game_still_going;
